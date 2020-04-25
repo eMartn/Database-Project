@@ -187,4 +187,16 @@ INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radi
 VALUES ('The Great Impasta', 12.00, '11:00AM - 9:00PM', '8 miles');
 
 CREATE TABLE User_Restaurant(
+	Username VARCHAR(15) NOT NULL,
+    RestaurantName VARCHAR(50) NOT NULL,
+	Favorite_Specialty_Link VARCHAR(3),
+    Diet_Vegan_Option VARCHAR(3),
+    Diet_Vegetarian_Option VARCHAR(3),
+    CONSTRAINT User_Restaurant_User_FK FOREIGN KEY(Username)
+		REFERENCES User(Username)
+			ON UPDATE CASCADE,
+     CONSTRAINT User_Restaurant_Restaurant_FK FOREIGN KEY(RestaurantName)
+		REFERENCES Restaurant(RestaurantName)
+			ON UPDATE CASCADE,     
+	CONSTRAINT User_Restaurant_PK PRIMARY KEY(Username, RestaurantName)
 );
