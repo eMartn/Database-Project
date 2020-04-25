@@ -131,6 +131,27 @@ CONSTRAINT Amenities_Restaurant_FK FOREIGN KEY(RestaurantName)
 );
 
 -- Amenities Insert Data --
+INSERT INTO Amenities(RestaurantName, Kids_Area, Free_WiFi, Room_Reservation, Drive_Thru, Catering)
+VALUES ('Baguetteaboutit', 'No', 'Yes', 'No', 'No', 'Yes');
+
+INSERT INTO Amenities(RestaurantName, Kids_Area, Free_WiFi, Room_Reservation, Drive_Thru, Catering)
+VALUES ('Burgatory', 'No', 'Yes', 'No', 'No', 'Yes');
+
+INSERT INTO Amenities(RestaurantName, Kids_Area, Free_WiFi, Room_Reservation, Drive_Thru, Catering)
+VALUES ('Dairy Godmother', 'No', 'Yes', 'No', 'No', 'Yes');
+
+INSERT INTO Amenities(RestaurantName, Kids_Area, Free_WiFi, Room_Reservation, Drive_Thru, Catering)
+VALUES ('Fuckoffee', 'No', 'Yes', 'No', 'No', 'No');
+
+INSERT INTO Amenities(RestaurantName, Kids_Area, Free_WiFi, Room_Reservation, Drive_Thru, Catering)
+VALUES ('Nacho Daddy', 'No', 'Yes', 'No', 'Yes', 'Yes');
+
+INSERT INTO Amenities(RestaurantName, Kids_Area, Free_WiFi, Room_Reservation, Drive_Thru, Catering)
+VALUES ('The Codfather', 'No', 'Yes', 'Yes', 'No', 'Yes');
+
+INSERT INTO Amenities(RestaurantName, Kids_Area, Free_WiFi, Room_Reservation, Drive_Thru, Catering)
+VALUES ('The Great Impasta', 'No', 'Yes', 'Yes', 'No', 'Yes');
+
 
 CREATE TABLE Delivery_Service(
 RestaurantName VARCHAR(50) PRIMARY KEY NOT NULL,
@@ -143,3 +164,27 @@ CONSTRAINT Delivery_Service_Restaurant_FK FOREIGN KEY(RestaurantName)
 );
 
 -- Delivery_Service Insert Data --
+
+INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radius)
+VALUES ('Baguetteaboutit', null, null, null);
+
+INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radius)
+VALUES ('Burgatory', 10.50, '9:00AM - 11:00PM', '10 miles');
+
+INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radius)
+VALUES ('Dairy Godmother', null, null, null);
+
+INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radius)
+VALUES ('Fuckoffee', null, null, null);
+
+INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radius)
+VALUES ('Nacho Daddy', 10.00, '11:00AM - 10:00PM', '10 miles');
+
+INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radius)
+VALUES ('The Codfather', null, null, null);
+
+INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radius)
+VALUES ('The Great Impasta', 12.00, '11:00AM - 9:00PM', '8 miles');
+
+CREATE TABLE User_Restaurant(
+);
