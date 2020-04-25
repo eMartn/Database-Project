@@ -80,4 +80,22 @@ CREATE TABLE User(
 );
 
 INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
-VALUES();
+VALUES("jgrimaldo", "Burgers", 0, "Atlanta, Georgia", "None", "50.00");
+
+INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
+VALUES("emartn", "Cod", 0, "San Francisco, California", "None", "70.00");
+
+INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
+VALUES("Digiorno", "Baguette", 0, "New York, New York", "Italian", "90.00");
+
+INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
+VALUES("TomsNook", "Pasta", 0, "Santa Barbara, California", "Italian", "30.00");
+
+INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
+VALUES("furryLover", "Coffee", 0, "Atlanta, Georgia", "none", "20.00");
+
+INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
+VALUES("pastelle", "Cheesecake", 0, "Atlanta, Georgia", "none", "40.00");
+
+INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
+VALUES("Exodia", "Burgers", 0, "Lilburn, Georgia", "none", "35.00");
