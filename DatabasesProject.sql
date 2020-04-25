@@ -22,7 +22,7 @@ Website varchar(120)
 
 ALTER TABLE Restaurant CHANGE Phone_Number Phone_Number CHAR(12);
 
--- Restaurants Insert Data --
+-- Restaurant Insert Data --
 INSERT INTO Restaurant(RestaurantName, Avg_Rating, Location, Phone_Number, Specialty, Category, Days_Of_Operation, 
 Hours_Of_Operation, Monetary_Tier, Vegetarian_Option, Self_Serve, Vegan_Option, Reservation_Required, Restaurant_Chain,
 Capacity, Parking_Capacity, Website)
@@ -79,6 +79,7 @@ CREATE TABLE User(
     Budget VARCHAR(45)
 );
 
+-- User Insert Data --
 INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
 VALUES("jgrimaldo", "Burgers", 0, "Atlanta, Georgia", "None", "50.00");
 
@@ -99,3 +100,46 @@ VALUES("pastelle", "Cheesecake", 0, "Atlanta, Georgia", "none", "40.00");
 
 INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
 VALUES("Exodia", "Burgers", 0, "Lilburn, Georgia", "none", "35.00");
+
+CREATE TABLE Review(
+	Review_Number INT PRIMARY KEY NOT NULL,
+    Username VARCHAR(15),
+    RestaurantName VARCHAR(30),
+    RatingGiven INT,
+    Review_Text VARCHAR(300),
+    Date_Written VARCHAR(45),
+    CONSTRAINT Review_User_FK FOREIGN KEY(Username)
+		REFERENCES User(Username)
+			ON UPDATE CASCADE,
+	CONSTRAINT Review_Restaurant_FK FOREIGN KEY(RestaurantName)
+		REFERENCES Restaurant(RestaurantName)
+			ON UPDATE CASCADE
+);
+
+-- Review Insert Data --
+
+CREATE TABLE Amenities(
+RestaurantName VARCHAR(50) PRIMARY KEY NOT NULL,
+Kids_Area VARCHAR(3),
+Free_WiFi VARCHAR(3),
+Room_Reservation VARCHAR(3),
+Drive_Thru VARCHAR(3),
+Catering VARCHAR(3),
+CONSTRAINT Amenities_Restaurant_FK FOREIGN KEY(RestaurantName)
+	REFERENCES Restaurant(RestaurantName)
+		ON UPDATE CASCADE
+);
+
+-- Amenities Insert Data --
+
+CREATE TABLE Delivery_Service(
+RestaurantName VARCHAR(50) PRIMARY KEY NOT NULL,
+Fee DECIMAL(6, 2),
+Available_Hours VARCHAR(45),
+Delivery_Radius VARCHAR(45),
+CONSTRAINT Delivery_Service_Restaurant_FK FOREIGN KEY(RestaurantName)
+	REFERENCES Restaurant(RestaurantName)
+		ON UPDATE CASCADE
+);
+
+-- Delivery_Service Insert Data --
