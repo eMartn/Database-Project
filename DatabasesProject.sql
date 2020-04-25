@@ -32,6 +32,6 @@ INSERT INTO Restaurant(RestaurantName, Avg_Rating, Location, Phone_Number, Speci
 VALUES ("The Great Impasta", 4, "Santa Barbara, California", "567-877-1273", "Pasta", "Italian", "Monday-Sunday", "11:00 am - 9:00 pm", "Medium", "Yes", "No", "Yes", "No", "Yes", 30, 20, "https://Impasta.com");
 
 INSERT INTO Restaurant(RestaurantName, Avg_Rating, Location, Phone_Number, Specialty, Category, Days_Of_Operation, Hours_Of_Operation, Monetary_Tier, Vegetarian_Option, Self_Serve, Vegan_Option, Reservation_Required, Restaurant_Chain, Capacity, Parking_Capacity, Website)
-VALUES ("The Codfather", 4, ", Seattle, Washington ", "837-427-4277", "Cod", "Seafood", "Tuesday - Sunday", "11:00 am - 9:00 pm", "Medium", "Yes", "No", "No", "No", "No", 30, 20, "https://Impasta.com");
+VALUES ("The Codfather", 4, " Seattle, Washington ", "837-427-4277", "Cod", "Seafood", "Tuesday - Sunday", "11:00 am - 9:00 pm", "Medium", "Yes", "No", "No", "No", "No", 30, 20, "https://TheCod.com");
 
 
