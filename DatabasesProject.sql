@@ -118,6 +118,46 @@ CREATE TABLE Review(
 
 -- Review Insert Data --
 
+# GOOD
+INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES(001, "jgrimaldo", "Burgatory", 5, "Burger very good! 10/10", "4/25/20");
+
+# GOOD
+INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES(002, "emartn", "Nacho Daddy", 4, "I enjoyed the nachos. Loved the cheesiness", "4/24/20");
+
+# GOOD
+INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES(003, "Digiorno", "Baguetteaboutit", 5, "I, Digiorno, loved the food. It was a golden experience", "4/20/20");
+
+# GOOD
+INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES(004, "TomsNook", "The Great Impasta", 5, "Yes yes, the food was amazing.", "4/23/20");
+
+# GOOD
+INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES(005, "furryLover", "Fuckoffee", 4, "Nothing beats a good cup of joes at Fuckoffee", "4/21/20");
+
+# good 
+INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES(006, "pastelle", "Dairy Godmother", 4, "I love eating the cake. ", "4/20/20");
+
+ # SEE NOTES BELOW
+INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES(007, "Exodia", "Burgatory", 5, "Burgers were fantastic. Love the cook on them.", "4/24/20");
+
+# UPDATED LAST STATEMENT(007) TO MAKE SENSE WITH CURRENT LOCATION
+# BOTH STATEMENTS BELOW ARE ME MAKING THOSE CHANGES BUT I ALSO UPDATED THEM IN THE STATEMENT ABOVE
+# 
+UPDATE Review
+SET RestaurantName = "Burgatory"
+WHERE Review_Number = 7;
+
+UPDATE Review
+SET Review_Text = "Burgers were fantastic. Love the cook on them."
+WHERE Review_Number = 7;
+
+
 CREATE TABLE Amenities(
 RestaurantName VARCHAR(50) PRIMARY KEY NOT NULL,
 Kids_Area VARCHAR(3),
@@ -200,3 +240,27 @@ CREATE TABLE User_Restaurant(
 			ON UPDATE CASCADE,     
 	CONSTRAINT User_Restaurant_PK PRIMARY KEY(Username, RestaurantName)
 );
+
+
+# HAVE NOT RAN YET BECUASE OF THE "YES" VALUES
+INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
+VALUES("Exodia", "Burgatory", "Yes", "None", "None");
+
+INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
+VALUES("pastelle", "Dairy Godmother", "Yes", "None", "None");
+
+INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
+VALUES("furryLover", "Fuckoffee", "Yes", "None", "None");
+
+INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
+VALUES("Tomsnook", "The Great Impasta", "Yes", "None", "None");
+
+INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
+VALUES("Digiorno", "Baguetteaboutit", "Yes", "None", "None");
+
+INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
+VALUES("emartn", "The Codfather", "Cod", "Yes", "None");
+
+INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
+VALUES("jgrimaldo", "Burgatory", "Burgers", "Yes", "None");
+
