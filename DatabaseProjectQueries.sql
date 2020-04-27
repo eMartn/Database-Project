@@ -36,7 +36,8 @@ WHERE Current_Location LIKE '%Georgia%';
 
 # 6 Built-in functions
 # Displays the average budget of people who live in Atlanta, Georgia 
-SELECT  Current_Location, ROUND(AVG(Budget),2) AS Averge_Budgetn FROM USER
+SELECT  Current_Location, ROUND(AVG(Budget),2) AS Average_Budget 
+FROM User
 WHERE Current_Location = 'Atlanta, Georgia';
 
 # 7 Computed Column
