@@ -62,12 +62,12 @@ VALUES ("Dairy Godmother", 5, "Atlanta, Georgia", "404-388-6157", "Cheesecake", 
 INSERT INTO Restaurant(RestaurantName, Avg_Rating, Location, Phone_Number, Specialty, Category, Days_Of_Operation, 
 Hours_Of_Operation, Monetary_Tier, Vegetarian_Option, Self_Serve, Vegan_Option, Reservation_Required, Restaurant_Chain, 
 Capacity, Parking_Capacity, Website)
-VALUES ("Nacho Daddy", 4, "San Francisco, California", "415-304-6229", "TexMex/Nachos", "Restaurant", "Monday - Friday", 
+VALUES ("Nacho Daddy", 4, "San Francisco, California", "415-304-6229", "Nachos", "Restaurant", "Monday - Friday", 
 		"9:00AM - 9:00PM", "Low", "Yes", "No", "Yes", "No", "No", 32, 6, "https://www.NachoDaddyRestaurant.com");
 
 UPDATE Restaurant
-SET Website = "https://www.Fuckoffee.com"
-WHERE RestaurantName = "Fuckoffee";
+SET Specialty = "Nachos"
+WHERE RestaurantName = "Nacho Daddy";
 
 
 CREATE TABLE User(
@@ -87,22 +87,27 @@ INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budge
 VALUES("emartn", "Cod", 0, "San Francisco, California", "None", "70.00");
 
 INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
-VALUES("Digiorno", "Baguette", 0, "New York, New York", "Italian", "90.00");
+VALUES("Digiorno", "Baguette", 0, "New York, New York", "Vegan", "90.00");
 
 INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
-VALUES("TomsNook", "Pasta", 0, "Santa Barbara, California", "Italian", "30.00");
+VALUES("TomsNook", "Pasta", 0, "Santa Barbara, California", "None", "30.00");
 
 INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
-VALUES("furryLover", "Coffee", 0, "Atlanta, Georgia", "none", "20.00");
+VALUES("furryLover", "Coffee", 0, "Atlanta, Georgia", "Vegetarian", "20.00");
 
 INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
-VALUES("pastelle", "Cheesecake", 0, "Atlanta, Georgia", "none", "40.00");
+VALUES("pastelle", "Cheesecake", 0, "Atlanta, Georgia", "None", "40.00");
 
 INSERT INTO user(Username, Favorites, Credibility, Current_Location, Diet, Budget)
-VALUES("Exodia", "Burgers", 0, "Lilburn, Georgia", "none", "35.00");
+VALUES("Exodia", "Burgers", 0, "Lilburn, Georgia", "None", "35.00");
+
+
+UPDATE User
+SET Diet = "Vegetarian"
+WHERE Username = 'furryLover';
 
 CREATE TABLE Review(
-	Review_Number INT PRIMARY KEY NOT NULL,
+	Review_Number INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     Username VARCHAR(15),
     RestaurantName VARCHAR(30),
     RatingGiven INT,
@@ -119,43 +124,37 @@ CREATE TABLE Review(
 -- Review Insert Data --
 
 # GOOD
-INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
-VALUES(001, "jgrimaldo", "Burgatory", 5, "Burger very good! 10/10", "4/25/20");
+INSERT INTO Review(Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES("jgrimaldo", "Burgatory", 5, "Burger very good! 10/10", "4/25/20");
 
 # GOOD
-INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
-VALUES(002, "emartn", "Nacho Daddy", 4, "I enjoyed the nachos. Loved the cheesiness", "4/24/20");
+INSERT INTO Review(Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES("emartn", "Nacho Daddy", 4, "I enjoyed the nachos, but the water was a little spicy.", "4/24/20");
 
 # GOOD
-INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
-VALUES(003, "Digiorno", "Baguetteaboutit", 5, "I, Digiorno, loved the food. It was a golden experience", "4/20/20");
+INSERT INTO Review(Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES("Digiorno", "Baguetteaboutit", 5, "I, Digiorno, loved the food. It was a golden experience", "4/20/20");
 
 # GOOD
-INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
-VALUES(004, "TomsNook", "The Great Impasta", 5, "Yes yes, the food was amazing.", "4/23/20");
+INSERT INTO Review(Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES("TomsNook", "The Great Impasta", 5, "Yes yes, the food was amazing. Makes me want to invest in my own restaurant.
+		Yes yes.", "4/23/20");
 
 # GOOD
-INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
-VALUES(005, "furryLover", "Fuckoffee", 4, "Nothing beats a good cup of joes at Fuckoffee", "4/21/20");
+INSERT INTO Review(Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES("furryLover", "Fuckoffee", 4, "Nothing beats a good cup of joe at Fuckoffee", "4/21/20");
 
 # good 
-INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
-VALUES(006, "pastelle", "Dairy Godmother", 4, "I love eating the cake. ", "4/20/20");
+INSERT INTO Review(Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES("pastelle", "Dairy Godmother", 4, "I love eating the cake. ", "4/20/20");
 
  # SEE NOTES BELOW
-INSERT INTO Review(Review_Number, Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
-VALUES(007, "Exodia", "Burgatory", 5, "Burgers were fantastic. Love the cook on them.", "4/24/20");
+INSERT INTO Review(Username, RestaurantName, RatingGiven, Review_Text, Date_Written)
+VALUES("Exodia", "Burgatory", 5, "Burgers were fantastic. Love the cook on them.", "4/24/20");
 
 # UPDATED LAST STATEMENT(007) TO MAKE SENSE WITH CURRENT LOCATION
 # BOTH STATEMENTS BELOW ARE ME MAKING THOSE CHANGES BUT I ALSO UPDATED THEM IN THE STATEMENT ABOVE
 # 
-UPDATE Review
-SET RestaurantName = "Burgatory"
-WHERE Review_Number = 7;
-
-UPDATE Review
-SET Review_Text = "Burgers were fantastic. Love the cook on them."
-WHERE Review_Number = 7;
 
 
 CREATE TABLE Amenities(
@@ -209,7 +208,7 @@ INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radi
 VALUES ('Baguetteaboutit', null, null, null);
 
 INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radius)
-VALUES ('Burgatory', 10.50, '9:00AM - 11:00PM', '10 miles');
+VALUES ('Burgatory', 10.50, null, '10 miles');
 
 INSERT INTO Delivery_Service(RestaurantName, Fee, Available_Hours, Delivery_Radius)
 VALUES ('Dairy Godmother', null, null, null);
@@ -244,23 +243,23 @@ CREATE TABLE User_Restaurant(
 
 # HAVE NOT RAN YET BECUASE OF THE "YES" VALUES
 INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
-VALUES("Exodia", "Burgatory", "Yes", "None", "None");
+VALUES("Exodia", "Nacho Daddy", "No", "No", "No");
 
 INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
-VALUES("pastelle", "Dairy Godmother", "Yes", "None", "None");
+VALUES("pastelle", "Dairy Godmother", "Yes", "No", "No");
 
 INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
-VALUES("furryLover", "Fuckoffee", "Yes", "None", "None");
+VALUES("furryLover", "Fuckoffee", "Yes", "No", "No");
 
 INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
-VALUES("Tomsnook", "The Great Impasta", "Yes", "None", "None");
+VALUES("Tomsnook", "The Great Impasta", "Yes", "No", "No");
 
 INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
-VALUES("Digiorno", "Baguetteaboutit", "Yes", "None", "None");
+VALUES("Digiorno", "Baguetteaboutit", "Yes", "Yes", "No");
 
 INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
-VALUES("emartn", "The Codfather", "Cod", "Yes", "None");
+VALUES("emartn", "The Codfather", "Yes", "No", "No");
 
 INSERT INTO User_Restaurant(Username, RestaurantName, Favorite_Specialty_Link, Diet_Vegan_Option, Diet_Vegetarian_Option) 
-VALUES("jgrimaldo", "Burgatory", "Burgers", "Yes", "None");
+VALUES("jgrimaldo", "Burgatory", "Yes", "No", "No");
 
