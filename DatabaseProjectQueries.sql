@@ -11,8 +11,6 @@ WHERE RestaurantName IN (SELECT RestaurantName
 						 FROM delivery_service
 						 WHERE Fee IS NOT NULL);
 
-
-
 # 3 Inner join
 # Displays the details of a restaurant and the rating given to them as well as the review text 
 SELECT R.RestaurantName, Location, Specialty, Category, RatingGiven, Review_Text 
@@ -42,6 +40,10 @@ SELECT  Current_Location, ROUND(AVG(Budget),2) AS Averge_Budgetn FROM USER
 WHERE Current_Location = 'Atlanta, Georgia';
 
 # 7 Computed Column
-
+# Displays the remaining budget of user Exodia after they were to pay delivery for restaurant Burgatory
+SELECT Username, Budget, RestaurantName, Fee, round(sum(Budget - Fee), 2) AS BudgetAfterFee
+FROM User AS U INNER JOIN delivery_service as DS
+WHERE RestaurantName = 'Burgatory' AND Username = 'Exodia'
+GROUP BY Username;
 
 
